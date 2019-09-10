@@ -1,8 +1,8 @@
 {
     "Monday" :  [
         {
-            "Subject" : "EVS",
-            "Faculty" : "Dr. Arun Lal",
+            "Subject" : "Enviromental Sciences",
+            "Faculty" : "Dr. Arun Lal Srivastav",
             "Room" : "307",
             "Duration" : "9:00AM-9:55AM"
         },
@@ -37,7 +37,158 @@
             "Duration" : "1:35PM-2:30PM"
         },
         {
-            "Subject" : "Intro. to Web Tech",
+            "Subject" : "Intro. to Web Technologies",
+            "Faculty" : "Parul Dutta",
+            "Room" : "217",
+            "Duration" : "2:30PM-3:25PM"
+        },
+        {
+            "Subject" : "Intro. to Web Technologies",
+            "Faculty" : "Parul Dutta",
+            "Room" : "217",
+            "Duration" : "3:25PM-4:20PM"
+        }
+    ],
+
+    "Tuesday" :  [
+        {
+            "Subject" : "Engineering Exploration",
+            "Faculty" : "Roopali Dogra",
+            "Room" : "311",
+            "Duration" : "9:00AM-9:55AM"
+        },
+        {
+            "Subject" : "Engineering Exploration",
+            "Faculty" : "Roopali Dogra",
+            "Room" : "311",
+            "Duration" : "9:55AM-10:50AM"
+        },
+        {
+            "Subject" : "Advanced C Programming",
+            "Faculty" : "Amit Monga",
+            "Room" : "214",
+            "Duration" : "10:50AM-11:45AM"
+        },
+        {
+            "Subject" : "Advanced C Programming",
+            "Faculty" : "Amit Monga",
+            "Room" : "214",
+            "Duration" : "11:45AM-12:40PM"
+        },
+        {
+            "Subject" : "Discrete Structures",
+            "Faculty" : "Dr. Ashok Kumar",
+            "Room" : "307",
+            "Duration" : "12:40PM-1:35PM"
+        },
+        {
+            "Subject" : "Lunch Break",
+            "Faculty" : "N/A",
+            "Room" : "N/A",
+            "Duration" : "1:35PM-2:30PM"
+        },
+        {
+            "Subject" : "Introduction to Linux",
+            "Faculty" : "Praveshika Sinval",
+            "Room" : "314",
+            "Duration" : "2:30PM-3:25PM"
+        },
+        {
+            "Subject" : "Introduction to Linux",
+            "Faculty" : "Praveshika Sinval",
+            "Room" : "314",
+            "Duration" : "3:25PM-4:20PM"
+        }
+    ],
+    "Wednesday" :  [
+        {
+            "Subject" : "Introduction to Linux",
+            "Faculty" : "Praveshika Sinval",
+            "Room" : "307",
+            "Duration" : "9:00AM-9:55AM"
+        },
+        {
+            "Subject" : "Introduction to Linux",
+            "Faculty" : "Praveshika Sinval",
+            "Room" : "307",
+            "Duration" : "9:55AM-10:50AM"
+        },
+        {
+            "Subject" : "Advanced C Programming",
+            "Faculty" : "Amit Monga",
+            "Room" : "214",
+            "Duration" : "10:50AM-11:45AM"
+        },
+        {
+            "Subject" : "Advanced C Programming",
+            "Faculty" : "Amit Monga",
+            "Room" : "214",
+            "Duration" : "11:45AM-12:40PM"
+        },
+        {
+            "Subject" : "Lunch Break",
+            "Faculty" : "N/A",
+            "Room" : "N/A",
+            "Duration" : "12:40PM-1:35PM"
+        },
+        {
+            "Subject" : "Lunch Break",
+            "Faculty" : "N/A",
+            "Room" : "N/A",
+            "Duration" : "1:35PM-2:30PM"
+        },
+        {
+            "Subject" : "Intro. to Web Technologies",
+            "Faculty" : "Parul Dutta",
+            "Room" : "217",
+            "Duration" : "2:30PM-3:25PM"
+        },
+        {
+            "Subject" : "Intro. to Web Technologies",
+            "Faculty" : "Parul Dutta",
+            "Room" : "217",
+            "Duration" : "3:25PM-4:20PM"
+        }
+    ],
+    "Thursday" :  [
+        {
+            "Subject" : "Free Lecture",
+            "Faculty" : "N/A",
+            "Room" : "N/A",
+            "Duration" : "9:00AM-9:55AM"
+        },
+        {
+            "Subject" : "Mentor Meeting",
+            "Faculty" : "Amit Monga",
+            "Room" : "403",
+            "Duration" : "9:55AM-10:50AM"
+        },
+        {
+            "Subject" : "Advanced C Programming",
+            "Faculty" : "Amit Monga",
+            "Room" : "214",
+            "Duration" : "10:50AM-11:45AM"
+        },
+        {
+            "Subject" : "Advanced C Programming",
+            "Faculty" : "Amit Monga",
+            "Room" : "214",
+            "Duration" : "11:45AM-12:40PM"
+        },
+        {
+            "Subject" : "Discrete Structures",
+            "Faculty" : "Dr Ashok Kumar",
+            "Room" : "314",
+            "Duration" : "12:40PM-1:35PM"
+        },
+        {
+            "Subject" : "Lunch break",
+            "Faculty" : "N/A",
+            "Room" : "N/A",
+            "Duration" : "1:35PM-2:30PM"
+        },
+        {
+            "Subject" : "Intro. to Web Technologies",
             "Faculty" : "Parul Dutta",
             "Room" : "217",
             "Duration" : "2:30PM-3:25PM"
@@ -46,6 +197,56 @@
             "Subject" : "Intro. to Web Tech",
             "Faculty" : "Parul Dutta",
             "Room" : "217",
+            "Duration" : "3:25PM-4:20PM"
+        }
+    ],
+    "Friday" :  [
+        {
+            "Subject" : "Engineering Exploration",
+            "Faculty" : "Roopali Dogra",
+            "Room" : "311",
+            "Duration" : "9:00AM-9:55AM"
+        },
+        {
+            "Subject" : "Engineering Exploration",
+            "Faculty" : "Roopali Dogra",
+            "Room" : "311",
+            "Duration" : "9:55AM-10:50AM"
+        },
+        {
+            "Subject" : "Advanced C Programming",
+            "Faculty" : "Amit Monga",
+            "Room" : "214",
+            "Duration" : "10:50AM-11:45AM"
+        },
+        {
+            "Subject" : "Advanced C Programming",
+            "Faculty" : "Amit Monga",
+            "Room" : "214",
+            "Duration" : "11:45AM-12:40PM"
+        },
+        {
+            "Subject" : "Lunch Break",
+            "Faculty" : "N/A",
+            "Room" : "N/A",
+            "Duration" : "12:40PM-1:35PM"
+        },
+        {
+            "Subject" : "Discrete Structures",
+            "Faculty" : "Dr Ashok Kumar",
+            "Room" : "413",
+            "Duration" : "1:35PM-2:30PM"
+        },
+        {
+            "Subject" : "Intro. to Web Technologies",
+            "Faculty" : "Parul Dutta",
+            "Room" : "313",
+            "Duration" : "2:30PM-3:25PM"
+        },
+        {
+            "Subject" : "Intro. to Web Technologies",
+            "Faculty" : "Parul Dutta",
+            "Room" : "313",
             "Duration" : "3:25PM-4:20PM"
         }
     ]
