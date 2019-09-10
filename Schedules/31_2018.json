@@ -4,57 +4,49 @@
             "Subject" : "EVS",
             "Faculty" : "Dr. Arun Lal",
             "Room" : "307",
-            "Start Time" : 900,
-            "End Time" : 955
+            "Duration" : "9:00AM-9:55AM"
         },
         {
             "Subject" : "Free Lecture",
             "Faculty" : "N/A",
             "Room" : "N/A",
-            "Start Time" : 955,
-            "End Time" : 1050
+            "Duration" : "9:55AM-10:50AM"
         },
         {
             "Subject" : "Advanced C Programming",
             "Faculty" : "Amit Monga",
             "Room" : "214",
-            "Start Time" : 1050,
-            "End Time" : 1240
+            "Duration" : "10:50AM-11:45AM"
         },
         {
             "Subject" : "Advanced C Programming",
             "Faculty" : "Amit Monga",
             "Room" : "214",
-            "Start Time" : 1050,
-            "End Time" : 1240
+            "Duration" : "11:45AM-12:40PM"
         },
         {
             "Subject" : "Lunch Break",
             "Faculty" : "N/A",
             "Room" : "N/A",
-            "Start Time" : 1240,
-            "End Time" : 1330
+            "Duration" : "12:40PM-1:35PM"
         },
         {
             "Subject" : "Discrete Structures",
             "Faculty" : "Dr. Ashok Kumar",
             "Room" : "413",
-            "Start Time" : 1335,
-            "End Time" : 1430
+            "Duration" : "1:35PM-2:30PM"
         },
         {
             "Subject" : "Intro. to Web Tech",
             "Faculty" : "Parul Dutta",
             "Room" : "217",
-            "Start Time" : 1430,
-            "End Time" : 1620
+            "Duration" : "2:30PM-3:25PM"
         },
         {
             "Subject" : "Intro. to Web Tech",
             "Faculty" : "Parul Dutta",
             "Room" : "217",
-            "Start Time" : 1430,
-            "End Time" : 1620
+            "Duration" : "3:25PM-4:20PM"
         }
     ]
 }
