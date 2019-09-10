@@ -1,4 +1,60 @@
 {
-    "Batch" : "2018",
-    "Section" : "3-1"
+    "Monday" :  [
+        {
+            "Subject" : "EVS",
+            "Faculty" : "Dr. Arun Lal",
+            "Room" : "307",
+            "Start Time" : 900,
+            "End Time" : 955
+        },
+        {
+            "Subject" : "Free Lecture",
+            "Faculty" : "N/A",
+            "Room" : "N/A",
+            "Start Time" : 955,
+            "End Time" : 1050
+        },
+        {
+            "Subject" : "Advanced C Programming",
+            "Faculty" : "Amit Monga",
+            "Room" : "214",
+            "Start Time" : 1050,
+            "End Time" : 1240
+        },
+        {
+            "Subject" : "Advanced C Programming",
+            "Faculty" : "Amit Monga",
+            "Room" : "214",
+            "Start Time" : 1050,
+            "End Time" : 1240
+        },
+        {
+            "Subject" : "Lunch Break",
+            "Faculty" : "N/A",
+            "Room" : "N/A",
+            "Start Time" : 1240,
+            "End Time" : 1330
+        },
+        {
+            "Subject" : "Discrete Structures",
+            "Faculty" : "Dr. Ashok Kumar",
+            "Room" : "413",
+            "Start Time" : 1335,
+            "End Time" : 1430
+        },
+        {
+            "Subject" : "Intro. to Web Tech",
+            "Faculty" : "Parul Dutta",
+            "Room" : "217",
+            "Start Time" : 1430,
+            "End Time" : 1620
+        },
+        {
+            "Subject" : "Intro. to Web Tech",
+            "Faculty" : "Parul Dutta",
+            "Room" : "217",
+            "Start Time" : 1430,
+            "End Time" : 1620
+        }
+    ]
 }
