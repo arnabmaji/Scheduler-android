@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Scheduler</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="schedule">Schedule</string>
+    <string name="support">Support</string>
+    <string name="example_subject">Advanced C Programming</string>
+    <string name="example_subject_teacher">Amit Monga</string>
+    <string name="example_time_string">10:50AM-12:40PM</string>
+    <string name="example_class_room">217</string>
+    <string name="example_lecture_number">Lecture No. 2</string>
+    <string name="class_room_header">Class Room:</string>
+    <string name='ongoing_class_text'>Ongoing&#8230;</string>
+    <string name="settings">Settings</string>
+</resources>
