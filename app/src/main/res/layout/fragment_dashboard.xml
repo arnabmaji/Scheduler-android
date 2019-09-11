@@ -2,11 +2,38 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/dashboard_fragment_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
     tools:context=".DashboardFragment">
+
+    <TextView
+        android:id="@+id/ongoingClassTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/ongoing_lecture"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nextClassTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/next_lecture"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ongoingClassCardView" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ongoingClassCardView"
@@ -16,10 +43,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/card_background"
-        app:layout_constraintBottom_toTopOf="@+id/upcomingClassCardView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/ongoingClassTitle">
 
         <TextView
             android:id="@+id/subjectTextView"
@@ -96,7 +123,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <com.dinuscxj.progressbar.CircleProgressBar
-            android:id="@+id/progress_circular"
+            android:id="@+id/circular_progress"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="4dp"
@@ -106,9 +133,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView"
             app:progress_shader="sweep"
+            app:progress_start_color="@color/colorAccent"
             app:progress_start_degree="-90"
             app:progress_stroke_width="4dp"
-            app:progress_text_color="@android:color/holo_blue_light"
+            app:progress_text_color="@color/colorPrimary"
             app:progress_text_size="20dp"
             app:style="solid_line" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -118,12 +146,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/card_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ongoingClassCardView">
+        app:layout_constraintTop_toBottomOf="@+id/nextClassTitle">
 
         <TextView
             android:id="@+id/nextSubjectTextView"
@@ -200,7 +228,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <com.dinuscxj.progressbar.CircleProgressBar
-            android:id="@+id/nextProgress_circular"
+            android:id="@+id/nextCircular_progress"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="4dp"
@@ -210,9 +238,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nextLectureNumberTextView"
             app:progress_shader="sweep"
+            app:progress_start_color="@color/colorAccent"
             app:progress_start_degree="-90"
             app:progress_stroke_width="4dp"
-            app:progress_text_color="@android:color/holo_blue_light"
+            app:progress_text_color="@color/colorPrimary"
             app:progress_text_size="20dp"
             app:style="solid_line" />
     </androidx.constraintlayout.widget.ConstraintLayout>
