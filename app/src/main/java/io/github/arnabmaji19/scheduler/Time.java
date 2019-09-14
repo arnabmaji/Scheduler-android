@@ -64,7 +64,27 @@ public class Time {
         }
         return "Off Day";
     }
-
+    public static int getDayNo(String dayString){
+        int dayNo = -1;
+        switch (dayString){
+            case "Monday":
+                dayNo = Calendar.MONDAY;
+                break;
+            case "Tuesday":
+                dayNo = Calendar.TUESDAY;
+                break;
+            case "Wednesday":
+                dayNo = Calendar.WEDNESDAY;
+                break;
+            case "Thursday":
+                dayNo = Calendar.THURSDAY;
+                break;
+            case "Friday":
+                dayNo = Calendar.FRIDAY;
+                break;
+        }
+        return dayNo;
+    }
     public int getElapsedTime(){
         String currentTime = String.format(Locale.getDefault(),"%04d",this.currentTime);
         String startTime = periodStartTimeString;

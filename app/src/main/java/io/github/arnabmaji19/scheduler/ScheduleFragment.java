@@ -22,6 +22,8 @@ import com.dinuscxj.progressbar.CircleProgressBar;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 public class ScheduleFragment extends Fragment {
     private final String scheduleJson;
     private Context context;
@@ -29,6 +31,7 @@ public class ScheduleFragment extends Fragment {
     private Period[] periods;
     private View view;
     private final String TAG = "SCHEDULE FRAGMENT";
+    private final int PERIOD_MAX_DURATION = 60;
 
     @Nullable
     @Override
@@ -68,6 +71,15 @@ public class ScheduleFragment extends Fragment {
                         currentPeriod.getString("Faculty"),
                         currentPeriod.getString("Room"),
                         currentPeriod.getString("Duration"));
+                Time time = new Time();
+                int currentPeriodNo = time.getPeriod();
+                if(Time.getDayNo(day) < Calendar.getInstance().get(Calendar.DAY_OF_WEEK) || (Time.getDayNo(day) == Calendar.getInstance().get(Calendar.DAY_OF_WEEK) && (i+1) < currentPeriodNo) || (Time.getDayNo(day) == Calendar.getInstance().get(Calendar.DAY_OF_WEEK) && currentPeriodNo == -1)){
+                    periods[i].setCircleProgressBar(PERIOD_MAX_DURATION,PERIOD_MAX_DURATION);
+                } else if(Time.getDayNo(day) == Calendar.getInstance().get(Calendar.DAY_OF_WEEK) && (i+1) == currentPeriodNo){
+                    periods[i].setCircleProgressBar(PERIOD_MAX_DURATION,time.getElapsedTime());
+                } else {
+                    periods[i].setCircleProgressBar(PERIOD_MAX_DURATION,0);
+                }
             }
         } catch (Exception e){
             Log.e(TAG, "showScheduleForDay: error while parsing json");
