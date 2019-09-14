@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".DashboardFragment">
 
     <TextView
@@ -134,7 +135,7 @@
             app:progress_shader="sweep"
             app:progress_start_degree="-90"
             app:progress_stroke_width="4dp"
-            app:progress_text_color="@color/colorPrimary"
+            app:progress_text_color="@color/colorAccent"
             app:progress_text_size="20dp"
             app:style="solid_line" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -238,7 +239,7 @@
             app:progress_shader="sweep"
             app:progress_start_degree="-90"
             app:progress_stroke_width="4dp"
-            app:progress_text_color="@color/colorPrimary"
+            app:progress_text_color="@color/colorAccent"
             app:progress_text_size="20dp"
             app:style="solid_line" />
     </androidx.constraintlayout.widget.ConstraintLayout>

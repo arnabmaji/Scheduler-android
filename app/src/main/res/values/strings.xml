@@ -12,8 +12,9 @@
     <string name="sync_schedule">Sync Schedule</string>
     <string name="ongoing_lecture">Ongoing Lecture</string>
     <string name="next_lecture">Next Lecture</string>
-    <string name="week_day_selector">Select Day</string>
+    <string name="week_day_selector">Show Schedule for</string>
     <string name="internet_connection_error">No Internet Connection available</string>
     <string name="syncing_schedule_text">Getting all schedules&#8230;</string>
     <string name="change_schedule">Change Schedule</string>
+    <string name="copyright_notice">©2019 Arnab Maji, All Rights Reserved.</string>
 </resources>

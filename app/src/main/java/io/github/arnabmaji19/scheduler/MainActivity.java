@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.bottom_schedule:
                         selectedFragment = new ScheduleFragment(MainActivity.this, scheduleDataModel.getFullScheduleJson());
                         break;
+                    case R.id.bottom_support:
+                        selectedFragment = new SupportFragment();
                 }
                 if(selectedFragment != null){
                     currentFragment = selectedFragment;
