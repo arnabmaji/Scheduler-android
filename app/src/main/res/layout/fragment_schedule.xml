@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/selectWeekDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/week_day_selector"
+        app:layout_constraintBottom_toBottomOf="@+id/weekDaySpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/weekDaySpinner"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/selectWeekDay"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weekDaySpinner">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/card_background">
+
+                <TextView
+                    android:id="@+id/subjectTextView0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_subject"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/subjectTeacherTextView0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView0" />
+
+                <TextView
+                    android:id="@+id/subjectTeacherTextView0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/example_subject_teacher"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomHeaderTextView0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTextView0" />
+
+                <TextView
+                    android:id="@+id/lectureNumberTextView0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/example_lecture_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/classRoomHeaderTextView0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/class_room_header"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomTextView0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTeacherTextView0" />
+
+                <TextView
+                    android:id="@+id/classRoomTextView0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_class_room"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/classRoomHeaderTextView0" />
+
+                <TextView
+                    android:id="@+id/timeTextView0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/example_time_string"
+                    app:layout_constraintBottom_toBottomOf="@+id/classRoomTextView0"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.dinuscxj.progressbar.CircleProgressBar
+                    android:id="@+id/circular_progress0"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/timeTextView0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView0"
+                    app:progress_shader="sweep"
+                    app:progress_start_color="@color/colorAccent"
+                    app:progress_start_degree="-90"
+                    app:progress_stroke_width="4dp"
+                    app:progress_text_color="@color/colorPrimary"
+                    app:progress_text_size="20dp"
+                    app:style="solid_line" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/card_background">
+
+                <TextView
+                    android:id="@+id/subjectTextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_subject"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/subjectTeacherTextView1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView1" />
+
+                <TextView
+                    android:id="@+id/subjectTeacherTextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/example_subject_teacher"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomHeaderTextView1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTextView1" />
+
+                <TextView
+                    android:id="@+id/lectureNumberTextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/example_lecture_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/classRoomHeaderTextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/class_room_header"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomTextView1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTeacherTextView1" />
+
+                <TextView
+                    android:id="@+id/classRoomTextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_class_room"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/classRoomHeaderTextView1" />
+
+                <TextView
+                    android:id="@+id/timeTextView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/example_time_string"
+                    app:layout_constraintBottom_toBottomOf="@+id/classRoomTextView1"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.dinuscxj.progressbar.CircleProgressBar
+                    android:id="@+id/circular_progress1"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/timeTextView1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView1"
+                    app:progress_shader="sweep"
+                    app:progress_start_color="@color/colorAccent"
+                    app:progress_start_degree="-90"
+                    app:progress_stroke_width="4dp"
+                    app:progress_text_color="@color/colorPrimary"
+                    app:progress_text_size="20dp"
+                    app:style="solid_line" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/card_background">
+
+                <TextView
+                    android:id="@+id/subjectTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_subject"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/subjectTeacherTextView2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView2" />
+
+                <TextView
+                    android:id="@+id/subjectTeacherTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/example_subject_teacher"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomHeaderTextView2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTextView2" />
+
+                <TextView
+                    android:id="@+id/lectureNumberTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/example_lecture_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/classRoomHeaderTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/class_room_header"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomTextView2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTeacherTextView2" />
+
+                <TextView
+                    android:id="@+id/classRoomTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_class_room"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/classRoomHeaderTextView2" />
+
+                <TextView
+                    android:id="@+id/timeTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/example_time_string"
+                    app:layout_constraintBottom_toBottomOf="@+id/classRoomTextView2"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.dinuscxj.progressbar.CircleProgressBar
+                    android:id="@+id/circular_progress2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/timeTextView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView2"
+                    app:progress_shader="sweep"
+                    app:progress_start_color="@color/colorAccent"
+                    app:progress_start_degree="-90"
+                    app:progress_stroke_width="4dp"
+                    app:progress_text_color="@color/colorPrimary"
+                    app:progress_text_size="20dp"
+                    app:style="solid_line" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/card_background">
+
+                <TextView
+                    android:id="@+id/subjectTextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_subject"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/subjectTeacherTextView3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView3" />
+
+                <TextView
+                    android:id="@+id/subjectTeacherTextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/example_subject_teacher"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomHeaderTextView3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTextView3" />
+
+                <TextView
+                    android:id="@+id/lectureNumberTextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/example_lecture_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/classRoomHeaderTextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/class_room_header"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomTextView3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTeacherTextView3" />
+
+                <TextView
+                    android:id="@+id/classRoomTextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_class_room"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/classRoomHeaderTextView3" />
+
+                <TextView
+                    android:id="@+id/timeTextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/example_time_string"
+                    app:layout_constraintBottom_toBottomOf="@+id/classRoomTextView3"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.dinuscxj.progressbar.CircleProgressBar
+                    android:id="@+id/circular_progress3"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/timeTextView3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView3"
+                    app:progress_shader="sweep"
+                    app:progress_start_color="@color/colorAccent"
+                    app:progress_start_degree="-90"
+                    app:progress_stroke_width="4dp"
+                    app:progress_text_color="@color/colorPrimary"
+                    app:progress_text_size="20dp"
+                    app:style="solid_line" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/card_background">
+
+                <TextView
+                    android:id="@+id/subjectTextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_subject"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/subjectTeacherTextView4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView4" />
+
+                <TextView
+                    android:id="@+id/subjectTeacherTextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/example_subject_teacher"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomHeaderTextView4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTextView4" />
+
+                <TextView
+                    android:id="@+id/lectureNumberTextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/example_lecture_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/classRoomHeaderTextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/class_room_header"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomTextView4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTeacherTextView4" />
+
+                <TextView
+                    android:id="@+id/classRoomTextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_class_room"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/classRoomHeaderTextView4" />
+
+                <TextView
+                    android:id="@+id/timeTextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/example_time_string"
+                    app:layout_constraintBottom_toBottomOf="@+id/classRoomTextView4"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.dinuscxj.progressbar.CircleProgressBar
+                    android:id="@+id/circular_progress4"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/timeTextView4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView4"
+                    app:progress_shader="sweep"
+                    app:progress_start_color="@color/colorAccent"
+                    app:progress_start_degree="-90"
+                    app:progress_stroke_width="4dp"
+                    app:progress_text_color="@color/colorPrimary"
+                    app:progress_text_size="20dp"
+                    app:style="solid_line" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/card_background">
+
+                <TextView
+                    android:id="@+id/subjectTextView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_subject"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/subjectTeacherTextView5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView5" />
+
+                <TextView
+                    android:id="@+id/subjectTeacherTextView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/example_subject_teacher"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomHeaderTextView5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTextView5" />
+
+                <TextView
+                    android:id="@+id/lectureNumberTextView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/example_lecture_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/classRoomHeaderTextView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/class_room_header"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomTextView5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTeacherTextView5" />
+
+                <TextView
+                    android:id="@+id/classRoomTextView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_class_room"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/classRoomHeaderTextView5" />
+
+                <TextView
+                    android:id="@+id/timeTextView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/example_time_string"
+                    app:layout_constraintBottom_toBottomOf="@+id/classRoomTextView5"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.dinuscxj.progressbar.CircleProgressBar
+                    android:id="@+id/circular_progress5"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/timeTextView5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView5"
+                    app:progress_shader="sweep"
+                    app:progress_start_color="@color/colorAccent"
+                    app:progress_start_degree="-90"
+                    app:progress_stroke_width="4dp"
+                    app:progress_text_color="@color/colorPrimary"
+                    app:progress_text_size="20dp"
+                    app:style="solid_line" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/card_background">
+
+                <TextView
+                    android:id="@+id/subjectTextView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_subject"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/subjectTeacherTextView6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView6" />
+
+                <TextView
+                    android:id="@+id/subjectTeacherTextView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/example_subject_teacher"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomHeaderTextView6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTextView6" />
+
+                <TextView
+                    android:id="@+id/lectureNumberTextView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/example_lecture_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/classRoomHeaderTextView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/class_room_header"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomTextView6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTeacherTextView6" />
+
+                <TextView
+                    android:id="@+id/classRoomTextView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_class_room"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/classRoomHeaderTextView6" />
+
+                <TextView
+                    android:id="@+id/timeTextView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/example_time_string"
+                    app:layout_constraintBottom_toBottomOf="@+id/classRoomTextView6"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.dinuscxj.progressbar.CircleProgressBar
+                    android:id="@+id/circular_progress6"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/timeTextView6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView6"
+                    app:progress_shader="sweep"
+                    app:progress_start_color="@color/colorAccent"
+                    app:progress_start_degree="-90"
+                    app:progress_stroke_width="4dp"
+                    app:progress_text_color="@color/colorPrimary"
+                    app:progress_text_size="20dp"
+                    app:style="solid_line" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/card_background">
+
+                <TextView
+                    android:id="@+id/subjectTextView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_subject"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/subjectTeacherTextView7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView7" />
+
+                <TextView
+                    android:id="@+id/subjectTeacherTextView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/example_subject_teacher"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomHeaderTextView7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTextView7" />
+
+                <TextView
+                    android:id="@+id/lectureNumberTextView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/example_lecture_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/classRoomHeaderTextView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/class_room_header"
+                    app:layout_constraintBottom_toTopOf="@+id/classRoomTextView7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subjectTeacherTextView7" />
+
+                <TextView
+                    android:id="@+id/classRoomTextView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/example_class_room"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/classRoomHeaderTextView7" />
+
+                <TextView
+                    android:id="@+id/timeTextView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/example_time_string"
+                    app:layout_constraintBottom_toBottomOf="@+id/classRoomTextView7"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.dinuscxj.progressbar.CircleProgressBar
+                    android:id="@+id/circular_progress7"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/timeTextView7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lectureNumberTextView7"
+                    app:progress_shader="sweep"
+                    app:progress_start_color="@color/colorAccent"
+                    app:progress_start_degree="-90"
+                    app:progress_stroke_width="4dp"
+                    app:progress_text_color="@color/colorPrimary"
+                    app:progress_text_size="20dp"
+                    app:style="solid_line" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

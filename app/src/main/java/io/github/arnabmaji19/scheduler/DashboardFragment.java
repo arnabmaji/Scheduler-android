@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 public class DashboardFragment extends Fragment {
 
-    private Context context;
+    private final ScheduleDataModel scheduleDataModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,13 +32,12 @@ public class DashboardFragment extends Fragment {
                 view.findViewById(R.id.nextClassRoomTextView),
                 view.findViewById(R.id.nextCircular_progress),
                 view.findViewById(R.id.nextTimeTextView)};
-        ScheduleDataModel scheduleDataModel = new ScheduleDataModel(context);
         scheduleDataModel.updateTextViewFields(fields,true);
         scheduleDataModel.updateTextViewFields(nextFields,false);
         return view;
     }
 
-    public DashboardFragment(Context context){
-        this.context = context;
+    public DashboardFragment(ScheduleDataModel scheduleDataModel){
+        this.scheduleDataModel = scheduleDataModel;
     }
 }

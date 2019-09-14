@@ -3,9 +3,12 @@ package io.github.arnabmaji19.scheduler;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dinuscxj.progressbar.CircleProgressBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -21,34 +24,52 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Calendar;
 
+import javax.net.ssl.SNIHostName;
+
 import cz.msebera.android.httpclient.Header;
 
 public class ScheduleDataModel {
     private Context context;
     private String scheduleJSON;
     private static final String TAG = "SCHEDULE_CLASS";
-    private static final String URL = "https://github.com/arnabmaji19/Scheduler-android/raw/master/Schedules/31_2018.json";
+    private static final String URL = "https://github.com/arnabmaji19/Cloud/raw/master/Scheduler/Schedules/";
+    private final static String FILE_EXTENSION = ".json";
     private int currentPeriod;
     private Time time;
     private final int PERIOD_MAX_DURATION = 60;
+    private final String selectedSchedule;
+    private Snackbar snackbar;
+    private View view;
 
-    public ScheduleDataModel(Context context){
+    public ScheduleDataModel(Context context, View view){
         this.context = context;
+        this.view = view;
         time = new Time();
+        selectedSchedule = context.getSharedPreferences(context.getPackageName(),Context.MODE_PRIVATE).getString("selected_schedule",null);
         currentPeriod = time.getPeriod();
-        readFromInternalStorage();
+        Log.d(TAG, "ScheduleDataModel:"+selectedSchedule);
     }
 
     public void syncSchedule(){
+        snackbar = Snackbar.make(view,"Syncing your schedule",Snackbar.LENGTH_INDEFINITE);
+        snackbar.show();
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(URL, new JsonHttpResponseHandler(){
+        client.get(URL+selectedSchedule+FILE_EXTENSION, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 writeToInternalStorage(response.toString());
+                readFromInternalStorage();
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                Log.e(TAG,"Failed to update over internet");
+                Toast.makeText(context,"Failed to get your schedule",Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "onFailure: failed to get schedule for "+selectedSchedule);
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                snackbar.dismiss();
             }
         });
     }
@@ -82,7 +103,7 @@ public class ScheduleDataModel {
             }
             scheduleJSON = jsonString.toString();
         } catch (Exception e){
-            Log.e(TAG,"Failed to get json file");
+            Log.e(TAG, "readFromInternalStorage: failed to read from internal storage");
             e.printStackTrace();
         }
     }
@@ -90,8 +111,6 @@ public class ScheduleDataModel {
     public void updateTextViewFields(Object[] fields, boolean isOngoingClass){
         try{
             String today = Time.getDayString(Calendar.getInstance().get(Calendar.DAY_OF_WEEK));
-            Log.i(TAG, "updateTextViewFields: "+today);
-            Log.i(TAG, "updateTextViewFields: "+currentPeriod);
             if(!today.equals(Time.WEEK_END) &&  currentPeriod != -1){
                 JSONObject schedule = new JSONObject(scheduleJSON);
                 JSONArray day = schedule.getJSONArray(today);
@@ -130,5 +149,9 @@ public class ScheduleDataModel {
     public void updateCircularProgressBar(CircleProgressBar circleProgressBar){
         circleProgressBar.setMax(PERIOD_MAX_DURATION);
         circleProgressBar.setProgress(time.getElapsedTime());
+    }
+
+    public String getFullScheduleJson(){
+        return this.scheduleJSON;
     }
 }
