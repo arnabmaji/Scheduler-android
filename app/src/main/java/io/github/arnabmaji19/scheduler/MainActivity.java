@@ -15,7 +15,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.WindowManager;;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -35,10 +35,12 @@ public class MainActivity extends AppCompatActivity {
     private String[] availableSchedules;
     private Snackbar snackbar;
     private SharedPreferences sharedPreferences;
+    private BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         scheduleDataModel = new ScheduleDataModel(this,findViewById(R.id.main_layout));
         if(sharedPreferences.getString("selected_schedule",null) == null){ //in case user is opening app for first time, open choose dialog and select schedule
@@ -60,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         } else { //If already exists, read from internal storage
             updateAndShowSchedule(false);
         }
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setDashboardFragment(){
+        bottomNavigationView.setSelectedItemId(R.id.bottom_dashboard);
         currentFragment = dashboardFragment;
         getSupportFragmentManager().beginTransaction().replace(R.id.container_frame_layout, currentFragment).commit();
 
