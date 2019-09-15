@@ -2,38 +2,26 @@ package io.github.arnabmaji19.scheduler;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.view.WindowManager;;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
-import com.jakewharton.processphoenix.ProcessPhoenix;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.TextHttpResponseHandler;
-
-import java.util.Arrays;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -53,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         scheduleDataModel = new ScheduleDataModel(this,findViewById(R.id.main_layout));
-        if(sharedPreferences.getString("selected_schedule",null) == null){ //in case user is opening app for first time
+        if(sharedPreferences.getString("selected_schedule",null) == null){ //in case user is opening app for first time, open choose dialog and select schedule
             if(isInternetConnectionAvailable()){
                 availableSchedules = null;
                 showAvailableSchedules();
-            } else {
+            } else { //In case internet connection not available for first time, show error dialog and close app.
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("No Internet Connection");
                 builder.setCancelable(false);
@@ -69,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 builder.show();
             }
-        } else {
+        } else { //If already exists, read from internal storage
             updateAndShowSchedule(false);
         }
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
@@ -85,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = new ScheduleFragment(MainActivity.this, scheduleDataModel.getFullScheduleJson());
                         break;
                     case R.id.bottom_support:
-                        selectedFragment = new SupportFragment();
+                        selectedFragment = new SupportFragment(MainActivity.this);
                 }
                 if(selectedFragment != null){
                     currentFragment = selectedFragment;

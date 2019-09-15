@@ -9,12 +9,19 @@
     <string name="example_class_room"> </string>
     <string name="example_lecture_number"> </string>
     <string name="class_room_header">Class Room:</string>
-    <string name="sync_schedule">Sync Schedule</string>
+    <string name="sync_schedule">Sync your Schedule</string>
     <string name="ongoing_lecture">Ongoing Lecture</string>
     <string name="next_lecture">Next Lecture</string>
     <string name="week_day_selector">Show Schedule for</string>
     <string name="internet_connection_error">No Internet Connection available</string>
-    <string name="syncing_schedule_text">Getting all schedules&#8230;</string>
+    <string name="syncing_schedule_text">Getting all available Schedules&#8230;</string>
     <string name="change_schedule">Change Schedule</string>
     <string name="copyright_notice">©2019 Arnab Maji, All Rights Reserved.</string>
+    <string name="app_description">Scheduler\nVersion: 1.0\nDeveloper: Arnab Maji</string>
+    <string name="thanks_textview">Thank you for using this app!\nAny suggestions, Any queries?\nFeel free to contact!</string>
+    <string name="gh_social_media">Github</string>
+    <string name="fb_social_media">Facebook</string>
+    <string name="ig_social_media">Instagram</string>
+    <string name="wp_social_media">Whatsapp</string>
+    <string name="no_lectures">No Lectures for Now</string>
 </resources>

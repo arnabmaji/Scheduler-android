@@ -30,8 +30,8 @@ public class ScheduleFragment extends Fragment {
     private final int MAX_PERIODS = 8;
     private Period[] periods;
     private View view;
-    private final String TAG = "SCHEDULE FRAGMENT";
-    private final int PERIOD_MAX_DURATION = 60;
+    private final static String TAG = "SCHEDULE FRAGMENT";
+    private final static int PERIOD_MAX_DURATION = 60;
 
     @Nullable
     @Override
@@ -40,7 +40,7 @@ public class ScheduleFragment extends Fragment {
         periods = new Period[MAX_PERIODS];
         initializeAllPeriodsFields();
         String[] WEEK_DAYS = {"Monday","Tuesday","Wednesday","Thursday","Friday"};
-        Spinner weekDaySpinner = view.findViewById(R.id.weekDaySpinner);
+        Spinner weekDaySpinner = view.findViewById(R.id.weekDaySpinner); //Setting up spinner for week days
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(context,android.R.layout.simple_spinner_item,WEEK_DAYS);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         weekDaySpinner.setAdapter(arrayAdapter);
@@ -56,12 +56,12 @@ public class ScheduleFragment extends Fragment {
         return this.view;
     }
 
-    public ScheduleFragment(Context context , String scheduleJson){
+    ScheduleFragment(Context context , String scheduleJson){
         this.context = context;
         this.scheduleJson = scheduleJson;
     }
 
-    private void showScheduleForDay(String day){
+    private void showScheduleForDay(String day){ //Gets all schedules for current day
         try{
             JSONArray periodJson = new JSONObject(scheduleJson).getJSONArray(day);
             for(int i=0;i<MAX_PERIODS;i++){
@@ -86,7 +86,7 @@ public class ScheduleFragment extends Fragment {
         }
     }
 
-    public void initializeAllPeriodsFields(){
+    private void initializeAllPeriodsFields(){ //links all view in a period
         periods[0] = new Period((TextView) view.findViewById(R.id.lectureNumberTextView0),
                 (TextView) view.findViewById(R.id.subjectTextView0),
                 (TextView) view.findViewById(R.id.subjectTeacherTextView0),

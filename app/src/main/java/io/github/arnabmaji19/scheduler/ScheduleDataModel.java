@@ -3,7 +3,6 @@ package io.github.arnabmaji19.scheduler;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,24 +23,22 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Calendar;
 
-import javax.net.ssl.SNIHostName;
-
 import cz.msebera.android.httpclient.Header;
 
-public class ScheduleDataModel {
+class ScheduleDataModel {
     private Context context;
     private String scheduleJSON;
-    private static final String TAG = "SCHEDULE_CLASS";
+    private static final String TAG = "SCHEDULE_DATA_MODEL";
     private static final String URL = "https://github.com/arnabmaji19/Cloud/raw/master/Scheduler/Schedules/";
     private final static String FILE_EXTENSION = ".json";
     private int currentPeriod;
     private Time time;
-    private final int PERIOD_MAX_DURATION = 60;
+    private final static int PERIOD_MAX_DURATION = 60;
     private final String selectedSchedule;
     private Snackbar snackbar;
     private View view;
 
-    public ScheduleDataModel(Context context, View view){
+    ScheduleDataModel(Context context, View view){
         this.context = context;
         this.view = view;
         time = new Time();
@@ -50,31 +47,31 @@ public class ScheduleDataModel {
         Log.d(TAG, "ScheduleDataModel:"+selectedSchedule);
     }
 
-    public void syncSchedule(){
+    void syncSchedule(){ //Sync schedule via internet on github page.
         snackbar = Snackbar.make(view,"Syncing your schedule",Snackbar.LENGTH_INDEFINITE);
         snackbar.show();
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(URL+selectedSchedule+FILE_EXTENSION, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                writeToInternalStorage(response.toString());
-                readFromInternalStorage();
+                writeToInternalStorage(response.toString()); //On success, save it to internal storage
+                scheduleJSON = response.toString(); //Assign response for current use.
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                Toast.makeText(context,"Failed to get your schedule",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,"Failed to get your Schedule",Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "onFailure: failed to get schedule for "+selectedSchedule);
             }
 
             @Override
             public void onFinish() {
                 super.onFinish();
-                snackbar.dismiss();
+                snackbar.dismiss(); //Dismiss the snack bar on finish.
             }
         });
     }
 
-    public  void writeToInternalStorage(String string){
+    private void writeToInternalStorage(String string){ //Saving schedule as Text to Internal Storage.
         try{
             File file  = new File(context.getFilesDir(),"schedule.json");
             FileOutputStream fileOutputStream = new FileOutputStream(file);
@@ -90,7 +87,7 @@ public class ScheduleDataModel {
         }
     }
 
-    public void readFromInternalStorage(){
+    void readFromInternalStorage(){ //Reading schedule from Internal Storage for offline usage.
         StringBuilder jsonString = new StringBuilder();
         try{
             FileInputStream fileInputStream = context.openFileInput("schedule.json");
@@ -108,7 +105,7 @@ public class ScheduleDataModel {
         }
     }
 
-    public void updateTextViewFields(Object[] fields, boolean isOngoingClass){
+    void updateTextViewFields(Object[] fields, boolean isOngoingClass){ //Updates Dashboard Classes
         try{
             String today = Time.getDayString(Calendar.getInstance().get(Calendar.DAY_OF_WEEK));
             if(!today.equals(Time.WEEK_END) &&  currentPeriod != -1){
@@ -122,18 +119,18 @@ public class ScheduleDataModel {
                 }
             } else {
                 ((TextView) fields[0]).setVisibility(View.INVISIBLE);
-                ((TextView) fields[1]).setText("No more Lectures");
+                ((TextView) fields[1]).setText(R.string.no_lectures);
                 ((TextView) fields[2]).setVisibility(View.INVISIBLE);
                 ((TextView) fields[3]).setVisibility(View.INVISIBLE);
                 ((TextView) fields[5]).setVisibility(View.INVISIBLE);
             }
         } catch (Exception e){
             e.printStackTrace();
-            Log.e(TAG, "error while parsing json");
+            Log.e(TAG, "updateTextViewFields: error while parsing json");
         }
     }
 
-    public void updateClassInfo(JSONArray day, Object[] fields, int period){
+    private void updateClassInfo(JSONArray day, Object[] fields, int period){ //Updates Dashboard fields
         try {
             JSONObject currentPeriodJSON = day.getJSONObject(period-1);
             String lectureTextView = "Lecture No. " + period;
@@ -146,12 +143,12 @@ public class ScheduleDataModel {
             Log.e(TAG, "failed to parse json");
         }
     }
-    public void updateCircularProgressBar(CircleProgressBar circleProgressBar){
+    private void updateCircularProgressBar(CircleProgressBar circleProgressBar){
         circleProgressBar.setMax(PERIOD_MAX_DURATION);
-        circleProgressBar.setProgress(time.getElapsedTime());
+        circleProgressBar.setProgress(time.getElapsedTime()); //Sets Circular Progressbar for current time.
     }
 
-    public String getFullScheduleJson(){
+    String getFullScheduleJson(){
         return this.scheduleJSON;
     }
 }

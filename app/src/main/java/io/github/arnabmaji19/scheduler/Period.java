@@ -4,7 +4,7 @@ import android.widget.TextView;
 
 import com.dinuscxj.progressbar.CircleProgressBar;
 
-public class Period {
+class Period {
     private TextView lectureNumber;
     private TextView subject;
     private TextView subjectTeacher;
@@ -12,7 +12,7 @@ public class Period {
     private TextView time;
     private CircleProgressBar circleProgressBar;
 
-    public Period(TextView lectureNumber, TextView subject, TextView subjectTeacher, TextView room, TextView time, CircleProgressBar circleProgressBar) {
+    Period(TextView lectureNumber, TextView subject, TextView subjectTeacher, TextView room, TextView time, CircleProgressBar circleProgressBar) {
         this.lectureNumber = lectureNumber;
         this.subject = subject;
         this.subjectTeacher = subjectTeacher;
@@ -20,7 +20,7 @@ public class Period {
         this.time = time;
         this.circleProgressBar = circleProgressBar;
     }
-    public void setPeriodInformation(String lectureNumber, String subject, String subjectTeacher, String room, String time){
+    void setPeriodInformation(String lectureNumber, String subject, String subjectTeacher, String room, String time){
         this.lectureNumber.setText(lectureNumber);
         this.subject.setText(subject);
         this.subjectTeacher.setText(subjectTeacher);
@@ -28,7 +28,7 @@ public class Period {
         this.time.setText(time);
     }
 
-    public void setCircleProgressBar(int maxTime, int elapsedTime){
+    void setCircleProgressBar(int maxTime, int elapsedTime){
         circleProgressBar.setMax(maxTime);
         circleProgressBar.setProgress(elapsedTime);
     }

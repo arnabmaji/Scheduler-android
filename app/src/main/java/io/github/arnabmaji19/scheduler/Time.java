@@ -2,22 +2,20 @@ package io.github.arnabmaji19.scheduler;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Time {
-    private static String TAG = "TIME_CLASS";
+class Time {
+    private final static String TAG = "TIME_CLASS";
     private int currentTime;
-    private Calendar calendar;
     static final String WEEK_END = "Off Day";
     private String periodStartTimeString;
 
 
-    public Time(){
-        calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        String minuteString = String.format(Locale.getDefault(),"%02d",calendar.get(Calendar.MINUTE));
+    Time(){
+        int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        String minuteString = String.format(Locale.getDefault(),"%02d",Calendar.getInstance().get(Calendar.MINUTE));
         currentTime = Integer.parseInt(hour+minuteString);
     }
 
-    public int getPeriod(){
+    int getPeriod(){ //Gets current period according ti time
         int currentPeriod = -1;
         int startTime = 0;
         if(currentTime >= 900 && currentTime < 955){
@@ -49,7 +47,7 @@ public class Time {
         return currentPeriod;
     }
 
-    public static String getDayString(int weekNo){
+    static String getDayString(int weekNo){ //Days in exchange of numbers
         switch (weekNo){
             case 2:
                 return "Monday";
@@ -64,7 +62,7 @@ public class Time {
         }
         return "Off Day";
     }
-    public static int getDayNo(String dayString){
+    static int getDayNo(String dayString){ //numbers in exchange of day string
         int dayNo = -1;
         switch (dayString){
             case "Monday":
@@ -85,7 +83,7 @@ public class Time {
         }
         return dayNo;
     }
-    public int getElapsedTime(){
+    int getElapsedTime(){ //Gets elapsed time for current time
         String currentTime = String.format(Locale.getDefault(),"%04d",this.currentTime);
         String startTime = periodStartTimeString;
         int currentHour = Integer.parseInt(currentTime.substring(0,2));

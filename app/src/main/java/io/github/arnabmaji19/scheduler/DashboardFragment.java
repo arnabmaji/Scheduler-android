@@ -1,6 +1,5 @@
 package io.github.arnabmaji19.scheduler;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,7 +19,7 @@ public class DashboardFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        Object[] fields = {view.findViewById(R.id.lectureNumberTextView),
+        Object[] fields = {view.findViewById(R.id.lectureNumberTextView), //Updates fields for current and next lecture
                 view.findViewById(R.id.subjectTextView),
                 view.findViewById(R.id.subjectTeacherTextView),
                 view.findViewById(R.id.classRoomTextView),
@@ -37,7 +36,7 @@ public class DashboardFragment extends Fragment {
         return view;
     }
 
-    public DashboardFragment(ScheduleDataModel scheduleDataModel){
+    DashboardFragment(ScheduleDataModel scheduleDataModel){
         this.scheduleDataModel = scheduleDataModel;
     }
 }
