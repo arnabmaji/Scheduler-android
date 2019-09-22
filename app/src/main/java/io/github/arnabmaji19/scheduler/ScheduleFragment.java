@@ -9,9 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TableLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 public class ScheduleFragment extends Fragment {
     private final String scheduleJson;
@@ -32,6 +31,7 @@ public class ScheduleFragment extends Fragment {
     private View view;
     private final static String TAG = "SCHEDULE FRAGMENT";
     private final static int PERIOD_MAX_DURATION = 60;
+    private final static int LAST_PERIOD_END_TIME = 1620;
 
     @Nullable
     @Override
@@ -39,11 +39,15 @@ public class ScheduleFragment extends Fragment {
         this.view = inflater.inflate(R.layout.fragment_schedule,container,false);
         periods = new Period[MAX_PERIODS];
         initializeAllPeriodsFields();
-        String[] WEEK_DAYS = {"Monday","Tuesday","Wednesday","Thursday","Friday"};
+        final String[] WEEK_DAYS = {"Monday","Tuesday","Wednesday","Thursday","Friday"};
         Spinner weekDaySpinner = view.findViewById(R.id.weekDaySpinner); //Setting up spinner for week days
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(context,android.R.layout.simple_spinner_item,WEEK_DAYS);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         weekDaySpinner.setAdapter(arrayAdapter);
+        int dayNo = Calendar.getInstance().get(Calendar.DAY_OF_WEEK) - 2;
+        if(dayNo >=0 && dayNo <= 4){
+            weekDaySpinner.setSelection(dayNo);
+        }
         weekDaySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -73,9 +77,15 @@ public class ScheduleFragment extends Fragment {
                         currentPeriod.getString("Duration"));
                 Time time = new Time();
                 int currentPeriodNo = time.getPeriod();
-                if(Time.getDayNo(day) < Calendar.getInstance().get(Calendar.DAY_OF_WEEK) || (Time.getDayNo(day) == Calendar.getInstance().get(Calendar.DAY_OF_WEEK) && (i+1) < currentPeriodNo) || (Time.getDayNo(day) == Calendar.getInstance().get(Calendar.DAY_OF_WEEK) && currentPeriodNo == -1)){
+                Calendar calendar = Calendar.getInstance();
+                int currentDayOfWeekNo = calendar.get(Calendar.DAY_OF_WEEK);
+                int selectedDayOfWeekNo = Time.getDayNo(day);
+                int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+                int currentMinute = calendar.get(Calendar.MINUTE);
+                int hourAndMinute = Integer.parseInt(currentHour + "" + String.format(Locale.getDefault(),"%02d",currentMinute));
+                if((selectedDayOfWeekNo < currentDayOfWeekNo) || (selectedDayOfWeekNo == currentDayOfWeekNo && ((i+1) < currentPeriodNo || hourAndMinute >= LAST_PERIOD_END_TIME))){
                     periods[i].setCircleProgressBar(PERIOD_MAX_DURATION,PERIOD_MAX_DURATION);
-                } else if(Time.getDayNo(day) == Calendar.getInstance().get(Calendar.DAY_OF_WEEK) && (i+1) == currentPeriodNo){
+                } else if(selectedDayOfWeekNo == currentDayOfWeekNo && (i+1) == currentPeriodNo){
                     periods[i].setCircleProgressBar(PERIOD_MAX_DURATION,time.getElapsedTime());
                 } else {
                     periods[i].setCircleProgressBar(PERIOD_MAX_DURATION,0);

@@ -9,7 +9,7 @@
     <string name="example_class_room"> </string>
     <string name="example_lecture_number"> </string>
     <string name="class_room_header">Class Room:</string>
-    <string name="sync_schedule">Sync your Schedule</string>
+    <string name="sync_schedule">Sync Schedule</string>
     <string name="ongoing_lecture">Ongoing Lecture</string>
     <string name="next_lecture">Next Lecture</string>
     <string name="week_day_selector">Show Schedule for</string>

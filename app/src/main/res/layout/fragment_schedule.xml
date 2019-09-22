@@ -723,7 +723,7 @@
                 <com.dinuscxj.progressbar.CircleProgressBar
                     android:id="@+id/circular_progress6"
                     android:layout_width="80dp"
-                    android:layout_height="183dp"
+                    android:layout_height="80dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
